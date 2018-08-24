@@ -29,7 +29,7 @@ class LaraCedObserver
         }
     }
 
-    public function deleted(Model $user)
+    public function deleting(Model $user)
     {
         $model -> {$model -> getDestroyerColumn()} = $this->getUserId();
     }
