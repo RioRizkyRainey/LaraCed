@@ -24,7 +24,9 @@ class LaraCedObserver
 
     public function updating(Model $model)
     {
-        if ($model->isDirty()) {
+        if ($model->isDirty($model -> {$model -> getDestroyerColumn()})) {
+            //do nothing
+        } else if ($model->isDirty()) {
             $model -> {$model -> getEditorColumn()} = $this->getUserId();
         }
     }
@@ -32,5 +34,6 @@ class LaraCedObserver
     public function deleting(Model $model)
     {
         $model -> {$model -> getDestroyerColumn()} = $this->getUserId();
+        $model->save();
     }
 }
