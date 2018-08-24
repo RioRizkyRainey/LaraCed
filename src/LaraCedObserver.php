@@ -24,7 +24,7 @@ class LaraCedObserver
 
     public function updating(Model $model)
     {
-        if (! $model->isDirty()) {
+        if ($model->isDirty()) {
             $model -> {$model -> getEditorColumn()} = $this->getUserId();
         }
     }
