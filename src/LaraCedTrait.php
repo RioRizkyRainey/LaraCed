@@ -8,7 +8,7 @@ trait LaraCedTrait
 {
     
 
-    public static function bootCedTrait()
+    public static function bootLaraCedTrait()
     {
         static::observe(new LaraCedObserver);
     }
