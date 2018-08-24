@@ -9,7 +9,7 @@ This package automatically inserts/updates creator, editor and destroyer on your
 ## Install via Composer
 
 ```bash
-composer require yajra/laravel-auditable
+composer require riorizkyrainey/lara-ced
 ```
 
 ## Usage
