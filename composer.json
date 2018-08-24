@@ -1,0 +1,38 @@
+{
+    "name": "riorizkyrainey/lara-ced",
+    "description": "This package automatically inserts/updates creator, editor and destroyer on your table.",
+    "type": "library",
+    "minimum-stability": "stable",
+    "license": "MIT",
+    "require": {
+        "illuminate/support": "5.5",
+        "php": "^7.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7.3",
+        "orchestra/testbench": "^3.4"
+    },
+    "authors": [
+        {
+            "name": "Rio Rizky Rainey Ferbiansyah",
+            "email": "rizkyrainey@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "LaraCed\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "LaraCed\\Test\\": "tests"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "LaraCed\\LaraCedServiceProvider"
+            ]
+        }
+    }
+}
