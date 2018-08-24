@@ -2,12 +2,8 @@
 
 namespace LaraCed;
 
-use Illuminate\Database\Eloquent\Builder;
-
 trait LaraCedTrait
 {
-    
-
     public static function bootLaraCedTrait()
     {
         static::observe(new LaraCedObserver);
@@ -24,15 +20,17 @@ trait LaraCedTrait
         if (is_null($isUseSoftDeletes)) {
             return $isUseSoftDeletes = in_array('Illuminate\Database\Eloquent\SoftDeletes', class_uses_recursive(get_called_class()));
         }
+
         return $isUseSoftDeletes;
     }
 
     /**
-     *  Get user model
+     *  Get user model.
      */
     public function getUserModel()
     {
         $class = config('auth.providers.users.model');
+
         return $class;
     }
 
@@ -67,7 +65,7 @@ trait LaraCedTrait
     }
 
     /**
-     * Creator, relation with user model
+     * Creator, relation with user model.
      */
     public function creator()
     {
@@ -75,7 +73,7 @@ trait LaraCedTrait
     }
 
     /**
-     * Editor, relation with user model
+     * Editor, relation with user model.
      */
     public function editor()
     {
@@ -83,11 +81,10 @@ trait LaraCedTrait
     }
 
     /**
-     * Destroyer, relation with user model
+     * Destroyer, relation with user model.
      */
     public function destroyer()
     {
         return $this->belongsTo($this->getUserModel(), $this->getDestroyerColumn());
     }
-
 }
