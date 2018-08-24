@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class LaraCedObserver
 {
-
     /**
      * Get User id.
      *
@@ -19,21 +18,24 @@ class LaraCedObserver
 
     public function creating(Model $model)
     {
-        $model -> {$model -> getCreatorColumn()} = $this->getUserId();
+        $model->{$model->getCreatorColumn()}
+        = $this->getUserId();
     }
 
     public function updating(Model $model)
     {
-        if ($model->isDirty($model -> {$model -> getDestroyerColumn()})) {
+        if ($model->isDirty($model->{$model->getDestroyerColumn()})) {
             //do nothing
-        } else if ($model->isDirty()) {
-            $model -> {$model -> getEditorColumn()} = $this->getUserId();
+        } elseif ($model->isDirty()) {
+            $model->{$model->getEditorColumn()}
+            = $this->getUserId();
         }
     }
 
     public function deleting(Model $model)
     {
-        $model -> {$model -> getDestroyerColumn()} = $this->getUserId();
+        $model->{$model->getDestroyerColumn()}
+        = $this->getUserId();
         $model->save();
     }
 }
