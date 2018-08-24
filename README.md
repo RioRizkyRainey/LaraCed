@@ -3,7 +3,7 @@ This package automatically inserts/updates creator, editor and destroyer on your
 
 ## Requirements
 
-* This package requires PHP 7.0+
+* This package requires PHP 7.1+
 * It works with Laravel 5.5 (and may work with earlier versions too).
 
 ## Install via Composer
