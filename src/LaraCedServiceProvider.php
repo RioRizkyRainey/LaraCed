@@ -20,19 +20,13 @@ class LaraCedServiceProvider extends ServiceProvider
             $this->unsignedInteger('deleted_by')->nullable()->index();
         });
 
-        Blueprint::macro('creator', function($name) {
-            if (!isset($name) or empty($name)) 
-                $name = 'created_by';
+        Blueprint::macro('creator', function($name = 'created_by') {
             $this->unsignedInteger($name)->nullable()->index();
         });
-        Blueprint::macro('editor', function($name) {
-            if (!isset($name) or empty($name)) 
-                $name = 'updated_by';
+        Blueprint::macro('editor', function($name = 'updated_by') {
             $this->unsignedInteger($name)->nullable()->index();
         });
-        Blueprint::macro('destroyer', function($name) {
-            if (!isset($name) or empty($name)) 
-                $name = 'deleted_by';
+        Blueprint::macro('destroyer', function($name = 'deleted_by') {
             $this->unsignedInteger($name)->nullable()->index();
         });
 
