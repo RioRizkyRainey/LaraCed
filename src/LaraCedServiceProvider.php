@@ -2,6 +2,7 @@
 
 namespace LaraCed;
 
+use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\ServiceProvider;
 
 class LaraCedServiceProvider extends ServiceProvider

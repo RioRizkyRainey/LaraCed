@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class LaraCedObserver
 {
 
-
     /**
      * Get User id.
      *
