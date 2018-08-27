@@ -1,9 +1,16 @@
-# LaraCed
+# LaraCed (Laravel Creator-Editor-Destroyer)
+
+[![Latest Version on Packagist][ico-version]][link-packagist]
+[![Software License][ico-license]](LICENSE.md)
+[![Build Status][ico-travis]][link-travis]
+[![Quality Score][ico-code-quality]][link-code-quality]
+[![Total Downloads][ico-downloads]][link-downloads]
+
 This package automatically inserts/updates creator, editor and destroyer on your table.
 
 ## Requirements
 
-* This package requires PHP 7.0+
+* This package requires PHP 7.1+
 * It works with Laravel 5.5 (and may work with earlier versions too).
 
 ## Install via Composer
@@ -88,3 +95,19 @@ Schema::table('articles', function (Blueprint $table) {
     $table->dropCed();
 });
 ```
+
+## License
+
+The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
+
+[ico-version]: https://img.shields.io/packagist/v/RioRizkyRainey/lara-ced.svg?style=flat-square
+[ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
+[ico-travis]: https://img.shields.io/travis/RioRizkyRainey/LaraCed.svg?style=flat-square
+[ico-code-quality]: https://img.shields.io/scrutinizer/g/RioRizkyRainey/LaraCed.svg?style=flat-square
+[ico-downloads]: https://img.shields.io/packagist/dt/RioRizkyRainey/lara-ced.svg?style=flat-square
+
+[link-packagist]: https://packagist.org/packages/RioRizkyRainey/lara-ced
+[link-travis]: https://travis-ci.org/RioRizkyRainey/LaraCed
+[link-code-quality]: https://scrutinizer-ci.com/g/RioRizkyRainey/LaraCed/
+[link-downloads]: https://packagist.org/packages/RioRizkyRainey/lara-ced
+[link-author]: https://github.com/RioRizkyRainey
