@@ -16,6 +16,8 @@ class LaraCedServiceProvider extends ServiceProvider
     {
         $userClass = config('auth.providers.users.model');
 
+        $userClass = new $userClass;
+
         $userModel = $userClass->getTable();
 
         Blueprint::macro('ced', function () {
