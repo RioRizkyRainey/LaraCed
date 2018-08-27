@@ -38,7 +38,7 @@ class LaraCedServiceProvider extends ServiceProvider
             $this->dropColumn(['created_by', 'updated_by', 'deleted_by']);
         });
 
-        Blueprint::macro('cedForeign', function() use($userModel) {
+        Blueprint::macro('cedForeign', function () use ($userModel) {
             $tableName = $this->getTable();
 
             $this->foreign('created_by', 'fk_' . $tableName . 'has_created_by')->references('id')->on($userModel)->onUpdate('NO ACTION')->onDelete('NO ACTION');
@@ -48,25 +48,25 @@ class LaraCedServiceProvider extends ServiceProvider
             $this->foreign('deleted_by', 'fk_' . $tableName . 'has_deleted_by')->references('id')->on($userModel)->onUpdate('NO ACTION')->onDelete('NO ACTION');
         });
 
-        Blueprint::macro('creatorForeign', function ($name = 'created_by') use($userModel) {
+        Blueprint::macro('creatorForeign', function ($name = 'created_by') use ($userModel) {
             $tableName = $this->getTable();
 
             $this->foreign($name, 'fk_' . $tableName . 'has_' . $name)->references('id')->on($userModel)->onUpdate('NO ACTION')->onDelete('NO ACTION');
         });
 
-        Blueprint::macro('editorForeign', function ($name = 'updated_by') use($userModel) {
+        Blueprint::macro('editorForeign', function ($name = 'updated_by') use ($userModel) {
             $tableName = $this->getTable();
 
             $this->foreign($name, 'fk_' . $tableName . 'has_' . $name)->references('id')->on($userModel)->onUpdate('NO ACTION')->onDelete('NO ACTION');
         });
 
-        Blueprint::macro('destroyerForeign', function ($name = 'deleted_by') use($userModel) {
+        Blueprint::macro('destroyerForeign', function ($name = 'deleted_by') use ($userModel) {
             $tableName = $this->getTable();
 
             $this->foreign($name, 'fk_' . $tableName . 'has_' . $name)->references('id')->on($userModel)->onUpdate('NO ACTION')->onDelete('NO ACTION');
         });
 
-        Blueprint::macro('dropCedForeign', function () use($userModel) {
+        Blueprint::macro('dropCedForeign', function () use ($userModel) {
             $tableName = $this->getTable();
 
             $this->dropForeign('fk_' . $tableName . '_has_created_by');
