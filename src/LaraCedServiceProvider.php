@@ -78,7 +78,6 @@ class LaraCedServiceProvider extends ServiceProvider
             $this->foreign($name, 'fk_' . $tableName . 'has_' . $name)->references('id')->on($userModel)->onUpdate('NO ACTION')->onDelete('NO ACTION');
         });
 
-        
         //Drop CED Foreign
         Blueprint::macro('dropCreatorForeign', function ($name = 'created_by') use ($userModel) {
             $tableName = $this->getTable();
