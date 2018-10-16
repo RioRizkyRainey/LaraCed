@@ -83,19 +83,19 @@ class LaraCedServiceProvider extends ServiceProvider
         Blueprint::macro('dropCreatorForeign', function ($name = 'created_by') use ($userModel) {
             $tableName = $this->getTable();
 
-            $this->dropForeign($name, 'fk_' . $tableName . 'has_' . $name);
+            $this->dropForeign('fk_' . $tableName . 'has_' . $name);
         });
 
         Blueprint::macro('dropEditorForeign', function ($name = 'updated_by') use ($userModel) {
             $tableName = $this->getTable();
 
-            $this->dropForeign($name, 'fk_' . $tableName . 'has_' . $name);
+            $this->dropForeign('fk_' . $tableName . 'has_' . $name);
         });
 
         Blueprint::macro('dropDestroyerForeign', function ($name = 'deleted_by') use ($userModel) {
             $tableName = $this->getTable();
 
-            $this->dropForeign($name, 'fk_' . $tableName . 'has_' . $name);
+            $this->dropForeign('fk_' . $tableName . 'has_' . $name);
         });
 
         Blueprint::macro('dropCedForeign', function () use ($userModel) {
