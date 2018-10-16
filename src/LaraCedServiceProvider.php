@@ -36,6 +36,16 @@ class LaraCedServiceProvider extends ServiceProvider
             $this->unsignedInteger($name)->nullable()->index();
         });
 
+        Blueprint::macro('dropCreator', function ($name = 'created_by') {
+            $this->dropColumn($name);
+        });
+        Blueprint::macro('dropEditor', function ($name = 'updated_by') {
+            $this->dropColumn($name);
+        });
+        Blueprint::macro('dropDestroyer', function ($name = 'deleted_by') {
+            $this->dropColumn($name);
+        });
+
         Blueprint::macro('dropCed', function () {
             $this->dropColumn(['created_by', 'updated_by', 'deleted_by']);
         });
@@ -66,6 +76,26 @@ class LaraCedServiceProvider extends ServiceProvider
             $tableName = $this->getTable();
 
             $this->foreign($name, 'fk_' . $tableName . 'has_' . $name)->references('id')->on($userModel)->onUpdate('NO ACTION')->onDelete('NO ACTION');
+        });
+
+        
+        //Drop CED Foreign
+        Blueprint::macro('dropCreatorForeign', function ($name = 'created_by') use ($userModel) {
+            $tableName = $this->getTable();
+
+            $this->dropForeign($name, 'fk_' . $tableName . 'has_' . $name);
+        });
+
+        Blueprint::macro('dropEditorForeign', function ($name = 'updated_by') use ($userModel) {
+            $tableName = $this->getTable();
+
+            $this->dropForeign($name, 'fk_' . $tableName . 'has_' . $name);
+        });
+
+        Blueprint::macro('dropDestroyerForeign', function ($name = 'deleted_by') use ($userModel) {
+            $tableName = $this->getTable();
+
+            $this->dropForeign($name, 'fk_' . $tableName . 'has_' . $name);
         });
 
         Blueprint::macro('dropCedForeign', function () use ($userModel) {
